@@ -14,8 +14,8 @@
 }
 </style>
 
-<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.copy-to-clipboard/zeroclipboard.js"></script>
-<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.copy-to-clipboard/main.js"></script>
+<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.link-copy-to-clipboard/zeroclipboard.js"></script>
+<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.link-copy-to-clipboard/main.js"></script>
 
 #if ($value)
     <div class="copy_div" id="copy_div_$issue_id" onclick="alert('Copied text to clipboard:\n' + '$value');">&copy;</div>

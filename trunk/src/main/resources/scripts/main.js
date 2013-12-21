@@ -13,7 +13,7 @@ function store_issue(issue_id, value){
 }
 
 function glueme(baseurl, issue_id){
-    ZeroClipboard.setMoviePath(baseurl + '/download/resources/ru.mail.plugins.clipcopier.copy-to-clipboard/zeroclipboard.swf');
+    ZeroClipboard.setMoviePath(baseurl + '/download/resources/ru.mail.plugins.clipcopier.link-copy-to-clipboard/zeroclipboard.swf');
     var clip = new ZeroClipboard.Client();
 
     clip.addEventListener( 'onComplete', function(client, text){

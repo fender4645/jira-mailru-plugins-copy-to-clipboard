@@ -9,7 +9,7 @@
         <param name="vendor-logo">/images/logo.png</param>
     </plugin-info>
 
-    <customfield-type key="copytoclip" name="Copy To Clipboard"
+    <customfield-type key="link-copytoclip" name="Issue link Copy To Clipboard"
                       class="ru.mail.plugins.clipcopier.CopyToClipboardCFType">
         <description>Link to copy task data to clipboard</description>
 

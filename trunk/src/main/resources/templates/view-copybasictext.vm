@@ -15,8 +15,8 @@
 }
 </style>
 
-<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.copy-to-clipboard/zeroclipboard.js"></script>
-<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.copy-to-clipboard/main.js"></script>
+<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.link-copy-to-clipboard/zeroclipboard.js"></script>
+<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.link-copy-to-clipboard/main.js"></script>
 
 #if ($value)
     #if ($excelView)
@@ -25,7 +25,7 @@
     <div id="copy_div_$issue_id" >&copy;</div>
     <script language="javascript">
         AJS.$().ready(function() {
-            ZeroClipboard.setMoviePath('$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.copy-to-clipboard/zeroclipboard.swf');
+            ZeroClipboard.setMoviePath('$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.link-copy-to-clipboard/zeroclipboard.swf');
             var clip = new ZeroClipboard.Client();
             clip.addEventListener('onComplete', function(client, text) {
                 AJS.$("#copy_div_${issue_id}").animate({ width:"75px", height:"75px" }, 200);
