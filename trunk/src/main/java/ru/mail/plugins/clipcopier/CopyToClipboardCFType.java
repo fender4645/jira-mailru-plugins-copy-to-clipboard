@@ -5,6 +5,8 @@ import com.atlassian.jira.issue.customfields.impl.CalculatedCFType;
 import com.atlassian.jira.issue.customfields.impl.FieldValidationException;
 import com.atlassian.jira.issue.fields.CustomField;
 import com.atlassian.jira.issue.fields.layout.field.FieldLayoutItem;
+import com.atlassian.sal.api.ApplicationProperties;
+
 import org.apache.commons.lang.StringEscapeUtils;
 import java.util.Map;
 
@@ -14,6 +16,13 @@ import java.util.Map;
 public class CopyToClipboardCFType
     extends CalculatedCFType
 {
+    private final ApplicationProperties applicationProperties;
+    
+    public CopyToClipboardCFType(ApplicationProperties applicationProperties)
+    {
+        this.applicationProperties = applicationProperties;
+    }
+    
     public Object getSingularObjectFromString(String str)
     throws FieldValidationException
     {
@@ -35,7 +44,12 @@ public class CopyToClipboardCFType
     {
         if (issue != null && issue.getKey() != null)
         {
-            return String.format("%s %s: %s", issue.getIssueTypeObject().getName(), issue.getKey(), StringEscapeUtils.escapeJavaScript(issue.getSummary()));
+            StringBuilder sb = new StringBuilder();
+            sb.append(applicationProperties.getBaseUrl());
+            sb.append("/browse/");
+            sb.append(issue.getKey());
+            
+            return sb.toString();
         }
         else
         {
