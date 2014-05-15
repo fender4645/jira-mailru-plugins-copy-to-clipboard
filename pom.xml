@@ -38,6 +38,12 @@
                     <productDataVersion>${jira.data.version}</productDataVersion>
                 </configuration>
             </plugin>
+           	<plugin>
+	        	<groupId>com.atlassian.maven.plugins</groupId>
+		        <artifactId>maven-amps-plugin</artifactId>
+		        <version>${amps.version}</version>
+		        <extensions>true</extensions>
+    		</plugin>            
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
