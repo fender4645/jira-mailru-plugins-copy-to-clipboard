@@ -18,12 +18,18 @@
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
-        <dependency>
+	    <dependency>
             <groupId>com.atlassian.jira</groupId>
-            <artifactId>atlassian-jira</artifactId>
+            <artifactId>jira-core</artifactId>
             <version>${jira.version}</version>
             <scope>provided</scope>
-        </dependency>        
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-api</artifactId>
+            <version>${jira.version}</version>
+            <scope>provided</scope>
+        </dependency>      
     </dependencies>
 
     <build>
@@ -31,7 +37,7 @@
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>maven-jira-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>${amps.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${jira.version}</productVersion>
@@ -46,18 +52,21 @@
     		</plugin>            
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <properties>
-        <jira.version>5.0</jira.version>
-        <jira.data.version>5.0</jira.data.version>
-        <amps.version>4.0</amps.version>
+        <jira.version>6.3.4</jira.version>
+        <jira.data.version>${jira.version}</jira.data.version>
+		<amps.version>5.0.4</amps.version>
+     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
 </project>

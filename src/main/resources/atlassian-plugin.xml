@@ -17,10 +17,6 @@
         <resource type="velocity" name="column-view" location="templates/view-copylimited-text.vm"/>
     </customfield-type>
 
-    <component-import key="applicationProperties">
-		<interface>com.atlassian.sal.api.ApplicationProperties</interface>
-	</component-import>
-
     <resource type="download" name="zeroclipboard.js" location="zeroclipboard/zeroclipboard.js"/>
     <resource type="download" name="zeroclipboard.swf" location="zeroclipboard/zeroclipboard.swf"/>
     <resource type="download" name="main.js" location="scripts/main.js"/>
