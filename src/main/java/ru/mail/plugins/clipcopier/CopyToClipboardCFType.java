@@ -2,6 +2,8 @@ package ru.mail.plugins.clipcopier;
 
 import java.util.Map;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.issue.customfields.impl.CalculatedCFType;
 import com.atlassian.jira.issue.customfields.impl.FieldValidationException;
@@ -21,6 +23,7 @@ public class CopyToClipboardCFType extends CalculatedCFType {
         if (o != null) {
             return o.toString();
         }
+
         return null;
     }
 
@@ -37,6 +40,7 @@ public class CopyToClipboardCFType extends CalculatedCFType {
         Map<String, Object> params = super.getVelocityParameters(issue, field, fieldLayoutItem);
         if (issue != null && issue.getId() != null) {
             params.put("issue_id", issue.getId());
+            params.put("unescapedValue", issue.getKey() + " " + issue.getSummary());
         }
         return params;
     }

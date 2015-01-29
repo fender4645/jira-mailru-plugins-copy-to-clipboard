@@ -2,6 +2,7 @@
 # ignore all files except src/, README.MD, .gitignore and pom.xml
 
 .classpath
+.buildpath
 .project
 target/
 bin/

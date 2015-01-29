@@ -9,6 +9,21 @@
         <param name="vendor-logo">/images/logo.png</param>
     </plugin-info>
 
+    <resource type="i18n" name="i18n" location="i18n/ctc"/>
+
+    <web-resource key="ctc-web-resources" name="copy to clipboard web resources">
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+
+        <resource type="download" name="zeroclipboard.swf" location="zeroclipboard/ZeroClipboard.swf"/>
+        <resource type="download" name="zeroclipboard.js" location="zeroclipboard/ZeroClipboard.js"/>
+        <resource type="download" name="ctc-handler.js" location="webresources/ctc-handler.js"/>
+
+        <!--context>jira.view.issue</context-->
+        <context>jira.general</context>
+    </web-resource>
+
     <customfield-type key="link-copytoclip" name="Issue link Copy To Clipboard"
                       class="ru.mail.plugins.clipcopier.CopyToClipboardCFType">
         <description>Link to copy task data to clipboard</description>
@@ -17,7 +32,13 @@
         <resource type="velocity" name="column-view" location="templates/view-copylimited-text.vm"/>
     </customfield-type>
 
-    <resource type="download" name="zeroclipboard.js" location="zeroclipboard/zeroclipboard.js"/>
-    <resource type="download" name="zeroclipboard.swf" location="zeroclipboard/zeroclipboard.swf"/>
-    <resource type="download" name="main.js" location="scripts/main.js"/>
+    <web-item key="copy-to-clipboard-issue" i18n-name-key="ctc.view.issue.opsbar.operations.top.copy" name="Copy this issue data to clipboard" section="operations-top-level" weight="1">
+        <label key="ctc.opsbar.top.copy"/>
+        <tooltip key="ctc.opsbar.top.copy.tooltip"/>
+        <styleClass>issueaction-copy-to-clipboard</styleClass>
+        <link linkId="copy-to-clipboard-issue">
+            /secure/Dashboard.jspa <!-- fake link. Link is reloaded with js -->
+        </link>
+        <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition"/>
+    </web-item>
 </atlassian-plugin>
