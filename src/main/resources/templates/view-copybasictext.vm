@@ -1,59 +1,7 @@
-<style type="text/css">
-#copy_div_${issue_id} {
-    text-align:center;
-    border:1px solid black;
-    background-color:#ccc;
-    width: 15px;
-    height: 15px;
-    margin:1px; padding:1px;
-}
-#copy_div_${issue_id}.hover {
-    background-color:#eee;
-}
-#copy_div_${issue_id}.active {
-    background-color:#aaa;
-}
-</style>
-
-<script type="text/javascript" src="$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.link-copy-to-clipboard:ctc-web-resources/zeroclipboard.js"></script>
-
 #if ($value)
-    #set($valueWithHtml = $value)
     #if ($excelView)
         $textutils.br($textutils.htmlEncode($!value.toString(), false))
     #else
-    <div id="copy_div_$issue_id" >&copy;</div>
-    <script language="javascript">
-        AJS.$().ready(function() {
-        	initCopyToClipboardForCF();
-
-        	JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function(e, context, reason) {
-                   initCopyToClipboardForCF();
-                });
-        });
-        
-        function initCopyToClipboardForCF()
-        {
-            var swfResPath = "$requestContext.baseUrl/download/resources/ru.mail.plugins.clipcopier.link-copy-to-clipboard:ctc-web-resources/zeroclipboard.swf";
-            ZeroClipboard.config( { moviePath: swfResPath,
-                                    swfPath: swfResPath });
-        	var client = new ZeroClipboard( document.getElementById("copy_div_${issue_id}"));
-			
-			client.on( "ready", function( readyEvent ) {
-				client.on( "copy", function (event) {
-				  var clipboard = event.clipboardData;
-				  clipboard.setData( "text/plain", "$valueWithHtml" );
-				});
-			  client.on( "aftercopy", function( event ) {
-                AJS.$("#copy_div_${issue_id}").animate({ width:"75px", height:"75px" }, 200);
-                AJS.$("#copy_div_${issue_id}").animate({ width:"15px", height:"15px" }, 200);
-			  } );
-			} );
-
-			 client.on( 'error', function(event) {
-                    ZeroClipboard.destroy();
-              } );
-        }
-    </script>
+        <div id="copy_div_$issue_id" class="aui-button ctc-field-indicator" title="Copy to clipboard">&copy;</div>
     #end
 #end

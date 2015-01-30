@@ -1,0 +1,7 @@
+#if ($value)
+    #if ($excelView)
+        $textutils.br($textutils.htmlEncode($!value.toString(), false))
+    #else
+        <div id="copy_div_$issue_id" class="aui-button ctc-field-indicator ctc-column-view" ctc-value="$value" title="Copy to clipboard">&copy;</div>
+    #end
+#end

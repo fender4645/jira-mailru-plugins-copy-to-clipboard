@@ -20,8 +20,7 @@
         <resource type="download" name="zeroclipboard.js" location="zeroclipboard/ZeroClipboard.js"/>
         <resource type="download" name="ctc-handler.js" location="webresources/ctc-handler.js"/>
 
-        <!--context>jira.view.issue</context-->
-        <context>jira.general</context>
+        <context>jira.view.issue</context>
     </web-resource>
 
     <customfield-type key="link-copytoclip" name="Issue link Copy To Clipboard"
@@ -29,16 +28,6 @@
         <description>Link to copy task data to clipboard</description>
 
         <resource type="velocity" name="view" location="templates/view-copybasictext.vm"/>
-        <resource type="velocity" name="column-view" location="templates/view-copylimited-text.vm"/>
+        <resource type="velocity" name="column-view" location="templates/column-view-copybasictext.vm"/>
     </customfield-type>
-
-    <web-item key="copy-to-clipboard-issue" i18n-name-key="ctc.view.issue.opsbar.operations.top.copy" name="Copy this issue data to clipboard" section="operations-top-level" weight="1">
-        <label key="ctc.opsbar.top.copy"/>
-        <tooltip key="ctc.opsbar.top.copy.tooltip"/>
-        <styleClass>issueaction-copy-to-clipboard</styleClass>
-        <link linkId="copy-to-clipboard-issue">
-            /secure/Dashboard.jspa <!-- fake link. Link is reloaded with js -->
-        </link>
-        <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition"/>
-    </web-item>
 </atlassian-plugin>
