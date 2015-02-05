@@ -12,12 +12,9 @@
     <resource type="i18n" name="i18n" location="i18n/ctc"/>
 
     <web-resource key="ctc-web-resources" name="copy to clipboard web resources">
-
-        <resource type="download" name="zeroclipboard.swf" location="zeroclipboard/ZeroClipboard.swf"/>
-        <resource type="download" name="zeroclipboard-core.min.map" location="zeroclipboard/ZeroClipboard.Core.min.map"/>
-        <resource type="download" name="zeroclipboard.min.map" location="zeroclipboard/ZeroClipboard.min.map"/>
-        <resource type="download" name="zeroclipboard-core.js" location="zeroclipboard/ZeroClipboard.Core.min.js"/>
-        <resource type="download" name="zeroclipboard.js" location="zeroclipboard/ZeroClipboard.min.js"/>
+        <resource type="download" name="zeroclipboard.swf" location="zeroclipboard/zeroclipboard.swf"/>
+        <resource type="download" name="zeroclipboard-core.js" location="zeroclipboard/zeroclipboard.core.js"/>
+        <resource type="download" name="zeroclipboard.js" location="zeroclipboard/zeroclipboard.js"/>
         <resource type="download" name="ctc-handler.js" location="webresources/ctc-handler.js"/>
 
         <context>jira.view.issue</context>
